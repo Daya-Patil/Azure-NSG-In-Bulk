@@ -22,8 +22,8 @@ I recently came across a scenario, where my colleague was trying to create multi
 All the variables above are passed by type-casting in ‘String’ data type.
 
 ##### This returns with an error
-
-
+![Image of Error]
+(https://github.com/Daya-Patil/Azure-NSG-In-Bulk/blob/readme-edits/Error.png)
 
   
  
