@@ -10,7 +10,7 @@ I recently came across a scenario, where my colleague was trying to create multi
     ` -Priority $newRulePriority -SourceAddressPrefix  100.82.10.150,100.82.10.160,100.157.10.150,100.221.10.160 -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 20-23,4750,139,445
 
 
-##### But the goal was to read rules from an excel file & apply them to an NSG, but while doing so I’m getting an exception in the Set-AzureRmNetworkSecurityGroup statement, while saving state of NSG as below:
+**But the goal** was to read rules from an excel file & apply them to an NSG, but while doing so I’m getting an exception in the Set-AzureRmNetworkSecurityGroup statement, while saving state of NSG as below:
 
     Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name $RuleName -Description $Description -Access $Action -Protocol $Protocol -Direction $Direction 
     `  -Priority $Priority -SourceAddressPrefix $SourceAddress.ToString() -SourcePortRange $SourcePort.ToString()
