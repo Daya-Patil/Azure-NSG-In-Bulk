@@ -15,6 +15,14 @@ I recently came across a scenario, where my colleague was trying to create multi
     Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name $RuleName -Description $Description -Access $Action -Protocol $Protocol -Direction $Direction 
     `  -Priority $Priority -SourceAddressPrefix $SourceAddress.ToString() -SourcePortRange $SourcePort.ToString()
     -DestinationAddressPrefix $DestinationAddress.ToString() -DestinationPortRange $DestinationPort.ToString() 
+    
+    Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+
+
+All the variables above are passed by type-casting in ‘String’ data type.
+
+##### This returns with an error
+
 
 
   
