@@ -61,6 +61,56 @@ So it’s clear that the input is not getting sent in the expected format to the
 
 Let’s look at it again:
 
+![COMPARE](https://github.com/Daya-Patil/Azure-NSG-In-Bulk/blob/master/compare.png)
+
+Even if We try to put values in excel wrapped in commas still the format is not the expected one.
+
+![INCOMMAS](https://github.com/Daya-Patil/Azure-NSG-In-Bulk/blob/master/Incommas.png)
+
+
+
+The object that you need to use to pass the values to sourceport, sourceip, destinationport, destinationIP should be generic list as
+per https://docs.microsoft.com/en-us/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig?view=azurermps-5.6.0
+
+So to solve the error, we actually need a generic list, which can be created by adding reference as below.
+    
+    add-type -Language CSharpVersion3 -TypeDefinition
+      @"
+       public class Person
+       {
+        public Person() {}
+        public string First {get; set; }
+        public string Last {get; set; }
+       }
+    "@
+
+
+You will have to add values individually to it 
+
+    $ports.add('22-23')
+    $ports.add(443)
+
+Once I did that there was no more error for port range that you were getting.
+
+Now I got the error for IP address, as we have multiple values there too.
+
+![Error2](https://github.com/Daya-Patil/Azure-NSG-In-Bulk/blob/master/error2.png)
+
+I have uploaded a script with the complete code. Once I run the code from the script, it completes successfully.
+
+![SUCCESS](https://github.com/Daya-Patil/Azure-NSG-In-Bulk/blob/master/Success.png)
+
+I hope this helps someone :)
+
+
+
+
+
+
+
+
+
+
 
 
 
