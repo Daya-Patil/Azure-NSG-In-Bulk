@@ -8,3 +8,28 @@ I recently came across a scenario, where my colleague was trying to create multi
 
 
 
+ 
+  
+  Add-AzureRmNetworkSecurityRuleConfig
+  -NetworkSecurityGroup $nsg -Name Baseline-rule -Description "Test-Baseline"
+  -Access Allow -Protocol Tcp -Direction Inbound -Priority $newRulePriority
+  -SourceAddressPrefix
+  100.82.10.150,100.82.10.160,100.157.10.150,100.221.10.160 -SourcePortRange *
+  -DestinationAddressPrefix * -DestinationPortRange 20-23,4750,139,445 
+
+
+  
+ 
+
+
+
+
+
+
+  
+ 
+
+
+
+
+
