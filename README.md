@@ -6,7 +6,9 @@ I recently came across a scenario, where my colleague was trying to create multi
 
 // This works fine
 
-
+    $InputObject = @{"TestSQLVMName" = "#TestSQLVMName" ; "TestSQLVMRG" = "#TestSQLVMRG" ; "ProdSQLVMName" = "#ProdSQLVMName" ; "ProdSQLVMRG" = "#ProdSQLVMRG"; "Paths" = @{"1"="#sqlserver:\sql\sqlazureVM\default\availabilitygroups\ag1";"2"="#sqlserver:\sql\sqlazureVM\default\availabilitygroups\ag2"}}
+        New-AzureRmAutomationVariable -Name "#RecoveryPlanName" -ResourceGroupName "#AutomationAccountResourceGroup" -AutomationAccountName "#AutomationAccountName" -Value $RPDetails -Encrypted $false 
+        New-AzureRmAutomationVariable -Name "#RecoveryPlanName" -ResourceGroupName "#AutomationAccountResourceGroup" -AutomationAccountName "#AutomationAccountName" -Value $RPDetails -Encrypted $false 
 
  
   
