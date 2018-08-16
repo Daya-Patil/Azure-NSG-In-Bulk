@@ -1,2 +1,3 @@
 # Azure-NSG-In-Bulk
-Creating commits
+
+# Using PowerShell to create Multiple Azure NSG Rules from Excel file 
