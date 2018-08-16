@@ -21,11 +21,50 @@ I recently came across a scenario, where my colleague was trying to create multi
 
 All the variables above are passed by type-casting in ‘String’ data type.
 
-##### This returns with an error
+##### This returns with an error "Security Rule has invalid Port range value provided "
+
 ![Error](https://github.com/Daya-Patil/Azure-NSG-In-Bulk/blob/readme-edits/Error.png)
 
+Below is the Input excel file rule screenshot:
   
- 
+![Inputfile](https://github.com/Daya-Patil/Azure-NSG-In-Bulk/blob/readme-edits/InputFile.png)
+
+Even if we do not convert the values for the ports with toString() to a String, you still get the same error.
+
+So, what is happening here?
+
+If you drill in detail and look at the actual Json file posted to the server, you will see below difference.
+
+ ##### The config output for working one:
+
+    "DestinationPortRange": [
+      "20-23",
+      "4750",
+      "139",
+      "445"
+    ],
+    "SourceAddressPrefix": [
+      "155.64.64.0/24",
+      "155.64.106.0/23"
+    ]
+##### Below is the config output for non-working one:
+
+    "DestinationPortRange": [
+      "\"22-23\",\"443\""
+       ],
+    "SourceAddressPrefix": [
+      "\"100.82.10.150\",\"100.82.10.160\""
+    ]
+
+
+So it’s clear that the input is not getting sent in the expected format to the server. 
+
+Let’s look at it again:
+
+
+
+
+
 
 
 
